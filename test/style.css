@@ -38,7 +38,7 @@ div.ml_box.animated {
     animation-duration: 0.5s;
 }
 
-.content img {
+.container img {
     cursor: -webkit-zoom-in;
     cursor: zoom-in;
 }
