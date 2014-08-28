@@ -22,11 +22,11 @@ div.ml_box {
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(75, 75, 75, 0.95);
     text-align: center;
 }
 
-.ml_box img {
+div.ml_box img {
     max-width: 90%;
     max-height: 90%;
     vertical-align: middle;
@@ -36,6 +36,21 @@ div.ml_box {
     bottom: 0;
     left: 0;
     right: 0;
+    cursor: zoom-out;
+    cursor: -webkit-zoom-out;
+    border-radius: 4px;
+    border: 4px solid #D7D7D7;
+}
+
+div.ml_box .animated,
+div.ml_box.animated {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+.content img {
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
 }
 
 .animated {
