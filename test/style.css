@@ -1,0 +1,44 @@
+/*#first-image, #second-image {
+    width: 200px;
+}*/
+
+@import url("./css/animate.css");
+
+.container {
+    background: white;
+    padding-bottom: 2em;
+}
+
+.container > img {
+    cursor: pointer;
+}
+
+body { background: #2980b9; }
+
+/* img style */
+div.ml_box {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.96);
+    text-align: center;
+}
+
+.ml_box img {
+    max-width: 90%;
+    max-height: 90%;
+    vertical-align: middle;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.animated {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
