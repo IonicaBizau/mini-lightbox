@@ -1,4 +1,4 @@
-# mini-lightbox
+# MiniLightbox
 Minimalist image lightbox
 
 ## Installation
