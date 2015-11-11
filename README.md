@@ -1,17 +1,9 @@
-# MiniLightbox
+# mini-lightbox [![Support this project][donate-now]][paypal-donations]
+
 Minimalist image lightbox
 
-## Installation
-Run the following commands to download and install the application:
-
-```sh
-$ git clone https://github.com/ionicabizau/mini-lightbox mini-lightbox
-$ cd mini-lightbox
-$ npm install
-```
-
 ## Demo
-Checkout [the demo page](http://ionicabizau.github.io/mini-lightbox).
+Check out [the demo page](http://ionicabizau.github.io/mini-lightbox).
 
 ## Examples
 
@@ -20,7 +12,7 @@ Checkout [the demo page](http://ionicabizau.github.io/mini-lightbox).
 ```html
 <img id="myImage" src="myImage.png" alt="Some title">
 <script>
-    MiniLightbox("#myImage");
+MiniLightbox("#myImage");
 </script>
 ```
 
@@ -29,23 +21,23 @@ If you need more stuff (e.g. animations etc), you need to create custom handlers
 
 ```js
 MiniLightbox.customClose = function () {
-    var self = this;
-    self.img.classList.add("animated", "fadeOutDown");
-    setTimeout(function () {
-        self.box.classList.add("animated", "fadeOut");
-        setTimeout(function () {
-            self.box.classList.remove("animated", "fadeOut");
-            self.img.classList.remove("animated", "fadeOutDown");
-            self.box.style.display = "none";
-        }, 500);
-    }, 500);
-    // prevent default library behavior
-    return false;
+var self = this;
+self.img.classList.add("animated", "fadeOutDown");
+setTimeout(function () {
+self.box.classList.add("animated", "fadeOut");
+setTimeout(function () {
+self.box.classList.remove("animated", "fadeOut");
+self.img.classList.remove("animated", "fadeOutDown");
+self.box.style.display = "none";
+}, 500);
+}, 500);
+// prevent default library behavior
+return false;
 };
 
 MiniLightbox.customOpen = function () {
-    this.box.classList.add("animated", "fadeIn");
-    this.img.classList.add("animated", "fadeInUp");
+this.box.classList.add("animated", "fadeIn");
+this.img.classList.add("animated", "fadeInUp");
 };
 ```
 
@@ -61,22 +53,33 @@ If images are added dynamically, you need to use delegation:
 
 ```js
 MiniLightbox({
-    "selector": ".content img"
-    // or the common parent where the images are appended
-  , delegation: "html"
+"selector": ".content img"
+// or the common parent where the images are appended
+, delegation: "html"
 });
 ```
 
-## How to contribute
+## Installation
 
-1. File an issue in the repository, using the bug tracker, describing the
-   contribution you'd like to make. This will help us to get you started on the
-   right foot.
-2. Fork the project in your account and create a new branch:
-   `your-great-feature`.
-3. Commit your changes in that branch.
-4. Open a pull request, and reference the initial issue in the pull request
-   message.
+```sh
+$ npm i mini-lightbox
+```
+
+## How to contribute
+Have an idea? Found a bug? See [how to contribute][contributing].
+
+## Where is this library used?
+If you are using this library in one of your projects, add it in this list. :sparkles:
 
 ## License
-See the [LICENSE](./LICENSE) file.
+
+[KINDLY][license] © [Ionică Bizău][website]
+
+[license]: http://ionicabizau.github.io/kindly-license/?author=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica@gmail.com%3E&year=2014
+
+[website]: http://ionicabizau.net
+[paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RVXDDLKKLQRJW
+[donate-now]: http://i.imgur.com/6cMbHOC.png
+
+[contributing]: /CONTRIBUTING.md
+[docs]: /DOCUMENTATION.md
