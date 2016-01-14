@@ -1,6 +1,6 @@
-# mini-lightbox [![Support this project][donate-now]][paypal-donations]
+# mini-lightbox [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Version](https://img.shields.io/npm/v/mini-lightbox.svg)](https://www.npmjs.com/package/mini-lightbox) [![Downloads](https://img.shields.io/npm/dt/mini-lightbox.svg)](https://www.npmjs.com/package/mini-lightbox) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
-Minimalist image lightbox
+> Minimalist image lightbox
 
 ## Demo
 Check out [the demo page](http://ionicabizau.github.io/mini-lightbox).
@@ -11,9 +11,8 @@ Check out [the demo page](http://ionicabizau.github.io/mini-lightbox).
 
 ```html
 <img id="myImage" src="myImage.png" alt="Some title">
-
 <script>
-    MiniLightbox("#myImage");
+MiniLightbox("#myImage");
 </script>
 ```
 
@@ -22,23 +21,23 @@ If you need more stuff (e.g. animations etc), you need to create custom handlers
 
 ```js
 MiniLightbox.customClose = function () {
-    var self = this;
-    self.img.classList.add("animated", "fadeOutDown");
-    setTimeout(function () {
-        self.box.classList.add("animated", "fadeOut");
-        setTimeout(function () {
-            self.box.classList.remove("animated", "fadeOut");
-            self.img.classList.remove("animated", "fadeOutDown");
-            self.box.style.display = "none";
-        }, 500);
-    }, 500);
-    // prevent default library behavior
-    return false;
+var self = this;
+self.img.classList.add("animated", "fadeOutDown");
+setTimeout(function () {
+self.box.classList.add("animated", "fadeOut");
+setTimeout(function () {
+self.box.classList.remove("animated", "fadeOut");
+self.img.classList.remove("animated", "fadeOutDown");
+self.box.style.display = "none";
+}, 500);
+}, 500);
+// prevent default library behavior
+return false;
 };
 
 MiniLightbox.customOpen = function () {
-    this.box.classList.add("animated", "fadeIn");
-    this.img.classList.add("animated", "fadeInUp");
+this.box.classList.add("animated", "fadeIn");
+this.img.classList.add("animated", "fadeInUp");
 };
 ```
 
@@ -54,9 +53,9 @@ If images are added dynamically, you need to use delegation:
 
 ```js
 MiniLightbox({
-    "selector": ".content img",
-    // or the common parent where the images are appended
-    delegation: "html"
+"selector": ".content img"
+// or the common parent where the images are appended
+, delegation: "html"
 });
 ```
 
