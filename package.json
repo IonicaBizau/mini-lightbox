@@ -1,8 +1,8 @@
 {
   "name": "mini-lightbox",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Minimalist image lightbox",
-  "main": "lib/mini-lightbox.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
