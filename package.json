@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "dist-it lib/index.js mini-lightbox.min.js"
   },
   "repository": {
     "type": "git",
