@@ -101,5 +101,10 @@
     "scripts/",
     "cli.js",
     "index.js"
-  ]
+  ],
+  "dependencies": {
+    "elly": "^1.1.2",
+    "idy": "^1.2.5",
+    "iterate-object": "^1.3.2"
+  }
 }
