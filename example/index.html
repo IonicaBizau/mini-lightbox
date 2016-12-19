@@ -11,9 +11,8 @@
         <script src="../dist/mini-lightbox.min.js"></script>
         <script>
             window.onload = function () {
-                let ml = new MiniLightbox("#first-image, #second-image");
-                ml.customClose = function () {
-                    var self = this;
+                let ml = new MiniLightbox("img");
+                MiniLightbox.customClose = function (self) {
                     self.img.classList.add("animated", "fadeOutDown");
                     setTimeout(function () {
                         self.box.classList.add("animated", "fadeOut");
@@ -26,11 +25,13 @@
                     return false;
                 };
 
-                ml.customOpen = function () {
-                    this.box.classList.add("animated", "fadeIn");
-                    this.img.classList.add("animated", "fadeInUp");
+                MiniLightbox.customOpen = function (self) {
+                    if (self.el.parentElement.tagName === "A") {
+                        return false;
+                    }
+                    self.box.classList.add("animated", "fadeIn");
+                    self.img.classList.add("animated", "fadeInUp");
                 };
-
             };
         </script>
     </head>
@@ -49,6 +50,14 @@
             <p>If you don't want to load the full image but a small thumbnail (when the lightbox is not opened) you can set <code>data-image-opened</code> attribute. It will be the path to the image that will be opened in the lightbox.</p>
 
             <img id="second-image" class="img-thumbnail" data-image-opened="./images/second/full.png" src="./images/second/small.png" alt="">
+
+            <h2>Block opening the lightbox</h2>
+            <p>By returning <code>false</code> in the hook functions, we can stop the default behavior of the library.</p>
+
+
+            <a href="https://ionicabizau.net" title="Visit my website">
+                <img class="img-thumbnail" src="./images/second/small.png">
+            </a>
 
             <hr>
 
