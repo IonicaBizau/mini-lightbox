@@ -8,6 +8,8 @@
 ## Demo
 Check out [the demo page](http://ionicabizau.github.io/mini-lightbox).
 
+## Browser support
+As long the [CSS3 transitions](http://caniuse.com/#feat=css-transitions) are supported by your browser, this should work fine. :rocket:
 ## Examples
 
 ### Simple usage
@@ -23,8 +25,7 @@ Check out [the demo page](http://ionicabizau.github.io/mini-lightbox).
 If you need more stuff (e.g. animations etc), you need to create custom handlers (`customClose` and `customOpen` handlers). Works like a charm with animate.css library. :smile:
 
 ```js
-MiniLightbox.customClose = function () {
-    var self = this;
+MiniLightbox.customClose = function (self) {
     self.img.classList.add("animated", "fadeOutDown");
     setTimeout(function () {
         self.box.classList.add("animated", "fadeOut");
@@ -38,9 +39,9 @@ MiniLightbox.customClose = function () {
     return false;
 };
 
-MiniLightbox.customOpen = function () {
-    this.box.classList.add("animated", "fadeIn");
-    this.img.classList.add("animated", "fadeInUp");
+MiniLightbox.customOpen = function (self) {
+    self.box.classList.add("animated", "fadeIn");
+    self.img.classList.add("animated", "fadeInUp");
 };
 ```
 
@@ -133,9 +134,7 @@ Thanks! :heart:
 [paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RVXDDLKKLQRJW
 [donate-now]: http://i.imgur.com/6cMbHOC.png
 
-
 [license]: http://showalicense.com/?fullname=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica%40gmail.com%3E%20(http%3A%2F%2Fionicabizau.net)&year=2014#license-mit
-
 [website]: http://ionicabizau.net
 [contributing]: /CONTRIBUTING.md
 [docs]: /DOCUMENTATION.md
