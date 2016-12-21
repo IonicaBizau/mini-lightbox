@@ -26,15 +26,18 @@ If you need more stuff (e.g. animations etc), you need to create custom handlers
 
 ```js
 MiniLightbox.customClose = function (self) {
+    var animationEnd = "webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationEnd";
     self.img.classList.add("animated", "fadeOutDown");
-    setTimeout(function () {
-        self.box.classList.add("animated", "fadeOut");
-        setTimeout(function () {
-            self.box.classList.remove("animated", "fadeOut");
-            self.img.classList.remove("animated", "fadeOutDown");
-            self.box.style.display = "none";
-        }, 500);
-    }, 500);
+    // wait until animation end
+    self.img.addEventListener(animationEnd, function() {
+      self.box.classList.add("animated", "fadeOut");
+    });
+    // wait until animation end
+    self.box.addEventListener(animationEnd, function() {
+      self.box.classList.remove("animated", "fadeOut");
+      self.img.classList.remove("animated", "fadeOutDown");
+      self.box.style.display = "none";
+    });
     // prevent default library behavior
     return false;
 };
