@@ -25,24 +25,37 @@ As long the [CSS3 transitions](http://caniuse.com/#feat=css-transitions) are sup
 If you need more stuff (e.g. animations etc), you need to create custom handlers (`customClose` and `customOpen` handlers). Works like a charm with animate.css library. :smile:
 
 ```js
-MiniLightbox.customClose = function (self) {
-    var animationEnd = "webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationEnd";
+function waitForAnimationEnd(element, callback) {
+    var animationEnd = "animationend";
+    var handleAnimationEnd = function(event) {
+      // remove listner
+      event.target.removeEventListener(animationEnd, handleAnimationEnd);
+      // fire callback
+      return callback(event);
+    };
+    element.addEventListener(animationEnd, handleAnimationEnd);
+}
+
+MiniLightbox.customClose = function(self) {
     self.img.classList.add("animated", "fadeOutDown");
-    // wait until animation end
-    self.img.addEventListener(animationEnd, function() {
+
+    waitForAnimationEnd(self.img, function() {
       self.box.classList.add("animated", "fadeOut");
     });
-    // wait until animation end
-    self.box.addEventListener(animationEnd, function() {
-      self.box.classList.remove("animated", "fadeOut");
+
+    waitForAnimationEnd(self.box, function() {
+      self.box.classList.remove("animated", "fadeOut", "fadeIn");
       self.img.classList.remove("animated", "fadeOutDown");
       self.box.style.display = "none";
     });
-    // prevent default library behavior
+
     return false;
 };
 
-MiniLightbox.customOpen = function (self) {
+MiniLightbox.customOpen = function(self) {
+    if (self.el.parentElement.tagName === "A") {
+      return false;
+    }
     self.box.classList.add("animated", "fadeIn");
     self.img.classList.add("animated", "fadeInUp");
 };

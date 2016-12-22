@@ -12,16 +12,31 @@
         <script>
             window.onload = function () {
                 let ml = new MiniLightbox("img");
+
+                function waitForAnimationEnd (element, callback) {
+                    var animationEnd = "animationend";
+                    var handleAnimationEnd = function (event) {
+                        // remove listner
+                        event.target.removeEventListener(animationEnd, handleAnimationEnd);
+                        // fire callback
+                        return callback(event);
+                    };
+                    element.addEventListener(animationEnd, handleAnimationEnd);
+                }
+
                 MiniLightbox.customClose = function (self) {
                     self.img.classList.add("animated", "fadeOutDown");
-                    setTimeout(function () {
+
+                    waitForAnimationEnd(self.img, function () {
                         self.box.classList.add("animated", "fadeOut");
-                        setTimeout(function () {
-                            self.box.classList.remove("animated", "fadeOut");
-                            self.img.classList.remove("animated", "fadeOutDown");
-                            self.box.style.display = "none";
-                        }, 500);
-                    }, 500);
+                    });
+
+                    waitForAnimationEnd(self.box, function () {
+                        self.box.classList.remove("animated", "fadeOut", "fadeIn");
+                        self.img.classList.remove("animated", "fadeOutDown");
+                        self.box.style.display = "none";
+                    });
+
                     return false;
                 };
 
