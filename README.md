@@ -38,17 +38,14 @@ function waitForAnimationEnd(element, callback) {
 
 MiniLightbox.customClose = function(self) {
     self.img.classList.add("animated", "fadeOutDown");
-
     waitForAnimationEnd(self.img, function() {
       self.box.classList.add("animated", "fadeOut");
     });
-
     waitForAnimationEnd(self.box, function() {
       self.box.classList.remove("animated", "fadeOut", "fadeIn");
       self.img.classList.remove("animated", "fadeOutDown");
       self.box.style.display = "none";
     });
-
     return false;
 };
 
