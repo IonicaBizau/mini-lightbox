@@ -1,6 +1,6 @@
 {
   "name": "mini-lightbox",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Minimalist image lightbox",
   "main": "lib/index.js",
   "directories": {
@@ -19,7 +19,7 @@
     "image",
     "css"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "contributors": [
     "Dawid Fajkowski <dawid.fajkowski@gmail.com>",
     "Milan Wanielik <wanielik@gmail.com>"
@@ -107,12 +107,11 @@
     "bin/",
     "app/",
     "lib/",
-    "build/",
     "dist/",
     "src/",
+    "scripts/",
     "resources/",
     "menu/",
-    "scripts/",
     "cli.js",
     "index.js"
   ],
