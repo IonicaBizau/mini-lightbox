@@ -18,6 +18,7 @@ The following methods can be used to modify the default behavior:
    behavior will be prevented.
 
 #### Params
+
 - **Object** `options`: An object containing the following fields:
  - `selector` (String): The image query selector.
  - `delegation` (String): The image container where to handle the delegation.
@@ -26,11 +27,13 @@ The following methods can be used to modify the default behavior:
 Closes the lightboxes.
 
 #### Params
+
 - **String** `id`: The lightbox id. If not provided, it will close all the opened lightboxes.
 
 ### `open(id)`
 Opens the lightbox. This is called internally.
 
 #### Params
+
 - **String** `id`: The lightbox id.
 
