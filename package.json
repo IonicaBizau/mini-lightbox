@@ -1,6 +1,6 @@
 {
   "name": "mini-lightbox",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "Minimalist image lightbox",
   "main": "lib/index.js",
   "directories": {
@@ -114,6 +114,8 @@
     "menu/",
     "cli.js",
     "index.js",
+    "index.d.ts",
+    "package-lock.json",
     "bloggify.js",
     "bloggify.json",
     "bloggify/"
